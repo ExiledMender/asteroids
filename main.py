@@ -8,18 +8,23 @@ def main():
     print(f"Screen height: {SCREEN_HEIGHT}")
     
     pygame.init()
-    
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    clock = pygame.time.Clock()
+    td = 0
+
     while True:
-        log_state()
-        
+       
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-        
+
+        log_state()
+
         screen.fill("black")
         pygame.display.flip()
-
+        
+        td = clock.tick(60) / 1000.0  # Limit to 60 FPS
+        
 if __name__ == "__main__":
     main()
