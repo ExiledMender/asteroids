@@ -1,5 +1,5 @@
 import pygame
-from constants import SCREEN_WIDTH, SCREEN_HEIGHT
+from constants import SCREEN_WIDTH, SCREEN_HEIGHT, PLAYER_TURN_SPEED
 from logger import log_state
 from player import Player
 
@@ -25,6 +25,8 @@ def main():
         log_state()
 
         screen.fill("black")
+
+        player.update(td)
 
         player.draw(screen)
 
